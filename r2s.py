@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import base64
 import click
 import collections
@@ -42,12 +43,12 @@ def main():
     all_albums = cursor.fetchall()
     for i, (artist, album) in enumerate(all_albums):
         print_header(artist, album, i, len(all_albums))
-        results = spotify.search(q=u'artist:{0} album:{1}'.format(artist, album), type='album')
+        results = spotify.search(q=u'artist:"{0}" album:"{1}"'.format(artist, album), type='album')
         if results['albums']['total'] == 0:
             click.secho("Can't find it, fixup please.", fg='yellow')
             fixed_artist = click.prompt('Artist'.format(artist), default=artist)
             fixed_album = click.prompt('Album'.format(album), default=album)
-            results = spotify.search(q='artist:{0} album:{1}'.format(fixed_artist, fixed_album), type='album')
+            results = spotify.search(q=u'artist:"{0}" album:"{1}"'.format(fixed_artist, fixed_album), type='album')
             if results['albums']['total'] == 0:
                 handle_not_found(db, artist, album)
                 continue
@@ -76,7 +77,7 @@ def connect_to_spotify():
 def print_header(artist, album, current, total):
     click.clear()
     title = u'{0} - {1}'.format(artist, album)
-    progress = '{0}/{1}'.format(current+1, total)
+    progress = u'{0}/{1}'.format(current+1, total)
     term_width, term_height = click.get_terminal_size()
     pad_width = (term_width - len(title) - len(progress)) - 10
     header_template = u'=== {title} {pad} {progress} ==='
@@ -104,7 +105,7 @@ def handle_not_found(db, artist, album, prompt=True):
 def select_album(original_artist, original_album, albums, current_position, total_number):
     for album in albums:
         print_header(original_artist, original_album, current_position, total_number)
-        click.secho('\nFound: "{0}"\n'.format(album['name']), fg='green')
+        click.secho(u'\nFound: "{0}"\n'.format(album['name']), fg='green')
         print imgcat(album['images'][0]['url'])
         
         action = None
