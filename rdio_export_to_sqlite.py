@@ -28,7 +28,7 @@ def main():
     );''')
 
     if not csv_file.exists():
-        click.secho("collection.csv doesn't exist, bailing", fg=red)
+        click.secho("collection.csv doesn't exist, bailing", fg='red')
         return
 
     artist_albums = collections.Counter()
