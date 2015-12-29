@@ -26,7 +26,7 @@ Then:
 
 1. Create a [Spotify API application on this page](https://developer.spotify.com/my-applications/#!/applications)
 
-1. Modify `r2s.py`, filling in the 4 constants up at the top with the info from the app you created above.
+1. Modify `r2s.py`, filling in the 4 constants up at the top with the info from the app you created above. The redirect URI can be any valid URL, make sure you hit "save" at the bottom after entering it. When you run the `r2s.py` program it will have you manually copy in the URL that you are redirected to, no server is required.
 
 1. Install your Python kit: `pip install -r requirements.txt`
 
