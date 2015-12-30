@@ -18,11 +18,7 @@ First, you need the same kit as I have:
 
 Then:
 
-1. Install the [Rdio Enhancer Chrome plugin](https://chrome.google.com/webstore/detail/rdio-enhancer/hmaalfaappddkggilhahaebfhdmmmngf?hl=en)
-
-1. Visit Rdio in Chrome, go to your favorites view, make sure you're in "Album's & Songs" Mode (it'll be a URL like `http://www.rdio.com/people/{YOURNAME}/favorites/albums/`).
-
-1. If Rdio Enhancer is working, you should see a "Export to CSV" button. Click it. **Wait, this takes a long time** (like, 10 minutes for my 1000-ish albums).
+1. Export your Rdio stuff by visiting https://rdio.com/farewell. Move the `1_favorites/favorites_albumsandsongs.csv` file into a file called `collection.csv` in this directory.
 
 1. Create a [Spotify API application on this page](https://developer.spotify.com/my-applications/#!/applications)
 
