@@ -43,7 +43,7 @@ def main():
             click.secho("Can't find it, fixup please.", fg='yellow')
             fixed_artist = click.prompt('Artist'.format(artist), default=artist)
             fixed_album = click.prompt('Album'.format(album), default=album)
-            results = gmusic.search_all_access(artist + ' ' + album)['album_hits']
+            results = gmusic.search_all_access(fixed_artist + ' ' + fixed_album)['album_hits']
             if not results:
                 handle_not_found(db, artist, album)
                 continue
