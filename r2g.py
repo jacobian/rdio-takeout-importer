@@ -10,8 +10,8 @@ from more_itertools import chunked
 from pprint import pprint
 
 # FILL THESE IN YOURSELF:
-USERNAME = 'jacob@jacobian.org'
-PASSWORD = 'dacvvtwwtebwwhag'
+USERNAME = 'XXX'
+PASSWORD = 'XXX'
 
 class SkipAlbum(Exception):
     pass
